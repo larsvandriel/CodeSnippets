@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Structured Logger</Title>
+      <Shortcut>logger</Shortcut>
+      <Description>Creates a structured LogInformation statement.</Description>
+      <Author>Lars</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>message</ID>
+          <ToolTip>Log message template</ToolTip>
+          <Default>Processing item {ItemId}</Default>
+        </Literal>
+        <Literal>
+          <ID>argument</ID>
+          <ToolTip>Log argument</ToolTip>
+          <Default>itemId</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[_logger.LogInformation(
+    "$message$",
+    $argument$);$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

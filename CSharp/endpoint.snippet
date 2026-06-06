@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Minimal API Endpoint</Title>
+      <Shortcut>endpoint</Shortcut>
+      <Description>Creates a compact Minimal API endpoint mapping skeleton.</Description>
+      <Author>Lars</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Endpoint or feature name</ToolTip>
+          <Default>CreateProduct</Default>
+        </Literal>
+        <Literal>
+          <ID>method</ID>
+          <ToolTip>HTTP mapping method</ToolTip>
+          <Default>MapPost</Default>
+        </Literal>
+        <Literal>
+          <ID>route</ID>
+          <ToolTip>Endpoint route</ToolTip>
+          <Default>/</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[public static class $name$Endpoint
+{
+    public static RouteGroupBuilder Map$name$(this RouteGroupBuilder group)
+    {
+        group.$method$("$route$", async (
+            ISender sender,
+            CancellationToken cancellationToken) =>
+        {
+            $end$throw new NotImplementedException();
+        });
+
+        return group;
+    }
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

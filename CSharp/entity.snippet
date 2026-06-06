@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Entity With Factory</Title>
+      <Shortcut>entity</Shortcut>
+      <Description>Creates a sealed entity skeleton with private constructor and Create factory.</Description>
+      <Author>Lars</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>name</ID>
+          <ToolTip>Entity name</ToolTip>
+          <Default>Product</Default>
+        </Literal>
+        <Literal>
+          <ID>property</ID>
+          <ToolTip>Main property name</ToolTip>
+          <Default>Name</Default>
+        </Literal>
+        <Literal>
+          <ID>propertyCamel</ID>
+          <ToolTip>Main property parameter name</ToolTip>
+          <Default>name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[public sealed class $name$
+{
+    public Guid Id { get; private set; }
+
+    public string $property$ { get; private set; } = string.Empty;
+
+    private $name$()
+    {
+    }
+
+    public static $name$ Create(string $propertyCamel$)
+    {
+        if (string.IsNullOrWhiteSpace($propertyCamel$))
+        {
+            throw new ArgumentException("Value cannot be null or whitespace.", nameof($propertyCamel$));
+        }
+
+        return new $name$
+        {
+            Id = Guid.NewGuid(),
+            $property$ = $propertyCamel$
+        };
+    }
+
+    $end$
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Guard String Null Or WhiteSpace</Title>
+      <Shortcut>guardstr</Shortcut>
+      <Description>Creates a guard clause for string null or whitespace.</Description>
+      <Author>Lars</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>value</ID>
+          <ToolTip>String value to validate</ToolTip>
+          <Default>name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[if (string.IsNullOrWhiteSpace($value$))
+{
+    throw new ArgumentException("Value cannot be null or whitespace.", nameof($value$));
+}
+$end$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
